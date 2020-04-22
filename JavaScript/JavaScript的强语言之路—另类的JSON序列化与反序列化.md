@@ -1,7 +1,7 @@
 # JavaScript的强语言之路—另类的JSON序列化与反序列化
 
 > 2020年01月17日 更新
-此篇文章代码Demo：https://github.com/stelalae/jsnode/tree/ts/model ，`yarn start:debug`看控制台输出效果。
+此篇文章代码Demo：https://github.com/stelalae/node_demo ，`yarn start:debug`看控制台输出效果。
 
 JSON（JavaScript Object Notation）是一种轻量级，完全独立于语言的数据交换格式。目前被广泛应用在前后端的数据交互中。在JavaScript中的应用随处可见，灵活性、扩展性、可读性也是最强的！对应的`JSON.parse`与`JSON.stringify`就可以看做是对象的序列化和反序列化，将对象与字符串之间相互转换。
 
