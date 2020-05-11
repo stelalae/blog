@@ -2,6 +2,11 @@
 
 ## 加载
 
+推荐阅读[h5 秒开方案大全](http://www.alloyteam.com/2019/10/h5-performance-optimize/)
+> 说起 h5 性能优化方案，是个老生常谈的话题，通常的 web 优化方法，基本围绕在资源加载和 html 渲染两个方面。前者针对首屏，后者针对可交互。资源优化上，我们总的方向是围绕更小的资源包上，比如常见的：压缩、减包、拆包、动态加载包及图片优化上。html 渲染上总的方向是更快的展示内容，比如通过 cdn 分发、dns 解析、http 缓存、数据预请求，数据缓存及首屏优化大杀器——直出等。
+
+> 这些方案是各种前端面试中必考点，也是作为一个前端开发，当遇到性能问题、需要解决性能问题时最为首要和基本的思路。而具体应该使用什么样的方案，取决于实际开发需求、优先级、综合成本、及投入产出比等。
+
 在H5在App、公众号、小程序内等多端复用的背景下，提高加载速度的思考，内容要点：
 * SSR：结合Serverless速度应该非常快！首选方案！
 * App离线加载
@@ -37,6 +42,7 @@
 我带过的项目里都是用的假跳转，原因是业务和设计不复杂，Android、iOS、公众号三端都会使用到同一份H5，所以假跳转更适合我。
 
 另外推荐几篇好文：
+* [h5 秒开方案大全](http://www.alloyteam.com/2019/10/h5-performance-optimize/)
 * [iOS WKWebView的使用及Demo](https://github.com/wsl2ls/WKWebView)
 * [\[iOS\]WKWebView的使用--API篇 - 简书](https://www.jianshu.com/p/833448c30d70)
 * [WKWebView实现浏览历史恢复](https://oldoldb.com/2019/01/16/Session-restoration/)
