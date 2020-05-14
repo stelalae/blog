@@ -1,7 +1,7 @@
 # README
 
 加我微信
-![wechat_card](media/15873497432519/wechat_card.jpeg)
+![wechat_card](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/jdZ75o.jpeg)
 
 若文章对文章有任何疑问，欢迎提issue！
 
