@@ -13,7 +13,7 @@ JSON（JavaScript Object Notation）是一种轻量级，完全独立于语言�
 * 反序列化：将在序列化过程中所生成的二进制串转换成数据结构或者对象的过程。
 
 简单来说，序列化是将对象转换成字节流的过程，而反序列化的是将字节流恢复成对象的过程。两者的关系如下：
-![168786827eb84b58](media/15875326553173/168786827eb84b58.jpg)
+![168786827eb84b58](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/gPYOyT.jpg)
 
 不同的计算机语言中，数据结构、对象以及二进制串的表示方式并不相同。如Java/JavaScript中使用的是对象（Object），来自类的实例化。而C是用struct去表示数据解构，或根据指针的偏移量在内存中读取数据。C++则是Java方式或C方式均可，因为C++比C强化了class的概念。
 
@@ -148,7 +148,7 @@ test();
 没错，这才是标准的ES6写法，解构赋值的默认值、嵌套解构等经常使用时，必须在解析接口响应处等源头，利用反序列化时将值为null的属性从对象中移除掉。
 
  JavaScript 项目中最常见的十大错误。
-![16ddd25080469b29](media/15875326553173/16ddd25080469b29.jpg)
+![16ddd25080469b29](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/SonX90.jpg)
 
 我觉得解构赋值和解构默认值的出现，至少让前端少了10%的代码量！！！ts的出现，加上es6、es2017、es2020等发布，正确使用新特性，让我们逐步从低级bug中解脱出来。
 
@@ -210,7 +210,7 @@ test();
 ```
 
 经过编译之后，test里的代码好像与声明文件没关系了，更别说使用定义的默认值。可以思考想一想这是为什么！
-![fa9c36fbf520cf0e0e66ebf71844275d](media/15875326553173/fa9c36fbf520cf0e0e66ebf71844275d.jpg)
+![fa9c36fbf520cf0e0e66ebf71844275d](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/HWjkQg.jpg)
 
 
 原因是：

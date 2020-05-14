@@ -53,7 +53,7 @@ $ pod install
 
 即把下面这些Library转移到Podfile里去，这时有没有想起什么？转移原理其实是[集成到现有原生应用](https://facebook.github.io/react-native/docs/integration-with-existing-apps)，只不过转移后还保留了react-native-cli脚手架在Xcode中的配置，比如打包RN代码的脚本等。一般情况下将RN集成到现有原生APP里，在打包APP时需要首先打包RN的离线文件，更详细见[React Native iOS打包详解](https://www.jianshu.com/p/36db88ef118d)。
 
-![16adebab8ea98007](media/15875319124145/16adebab8ea98007.jpg)
+![16adebab8ea98007](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/nfHuol.jpg)
 
 
 在Podfile里添加下面的代码，然后pod install即可会安装两个RN版本的问题。

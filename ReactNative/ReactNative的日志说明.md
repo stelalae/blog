@@ -5,11 +5,11 @@
 
 默认日志配置：默认级别`RCTDefaultLogThreshold`、默认打印函数`RCTDefaultLogThreshold`：
 
-![16c6c21cd5726992](media/15875322903752/16c6c21cd5726992.jpg)
+![16c6c21cd5726992](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/XenVOt.jpg)
 
 ### 日志级别
 
-![16c6c1542d7df0e9](media/15875322903752/16c6c1542d7df0e9.jpg)
+![16c6c1542d7df0e9](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/FMSHYW.jpg)
 
 
 - debug时，默认trace以上级别日志
@@ -30,15 +30,15 @@
 
 ### 日志来源
 
-![16c6c15f269e8969](media/15875322903752/16c6c15f269e8969.jpg)
+![16c6c15f269e8969](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/sU0seT.jpg)
 
 对应的，有两个日志函数`_RCTLogNativeInternal`、`_RCTLogJavaScriptInternal`，但是是私用的
 
-![16c6c1c099434c](media/15875322903752/16c6c1c099434cc6.jpg)
+![16c6c1c099434c](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/Jds4RQ.jpg)
 
 ### 日志函数
 
-![16c6c1d0c2059e5c](media/15875322903752/16c6c1d0c2059e5c.jpg)
+![16c6c1d0c2059e5c](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/Ysvwmu.jpg)
 
 `RCTSetLogThreshold \ RCTGetLogThreshold` 是日志等级的：
 ```

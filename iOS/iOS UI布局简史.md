@@ -39,7 +39,7 @@
 
 ### 非刘海机型
 
-![16be1897f802a652](media/15875320408603/16be1897f802a652.jpg)
+![16be1897f802a652](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/2G9S3W.jpg)
 
 很明显能看出这三种屏幕的尺寸宽高比是差不多的，加上现在都屏幕尺寸都是4.7+，因此常以iPhone 6(s)为基准，进行等比缩放。在实际中可能整个页面全部、或部分节点、或仅缩放宽(或高，然后另一侧自适应) 。
 
@@ -152,7 +152,7 @@ Flexbox解决了什么？
 > - 方向性 （传统布局方向是从左到右，从上至下）
 > - 弹性伸缩 （传统尺寸定义是通过像素等来精确定义）
 > - 元素对齐（可以做到插拔）
-![16c37a6f6df4ac4d](media/15875320408603/16c37a6f6df4ac4d.jpg)
+![16c37a6f6df4ac4d](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/mPB7hi.jpg)
 
 
 从上述几点看来，它似乎完美的解决了iOS原生布局开发效率低的问题，但它会增加页面的嵌套层级关系，在硬件性能饱和的情况下用空间换取开发效率。
@@ -161,7 +161,7 @@ Flexbox解决了什么？
 
 这里[根据从AutoLayout的布局算法谈性能](https://draveness.me/layout-performance)里的测试代码进行修改，对Frame/AutoLayout/FlexBox进行布局，分段测算10～350个UIView的布局时间,取100次布局时间的平均值作为结果，耗时单位为秒。结果如下图：（测试布局的项目代码[GitHub地址](https://github.com/ZenonHuang/MyDemos/tree/master/LayoutTest)）
 
-![16be1ca4ac02ead4](media/15875320408603/16be1ca4ac02ead4.jpg)
+![16be1ca4ac02ead4](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/4hiICE.jpg)
 
 虽然测试结果难免有偏差，但是根据折线图可以明显发现，FlexBox的布局性能是比较接近 Frame的。60FPS作为一个iOS流畅度的黄金标准，要求布局在0.0166667s内完成，AutoLayout在超过50个视图的时候，可能保持流畅就会开始有问题了。本次测试相关配置：Xcode9.2，iPad Pro (12.9-inch)(2nd generation) 模拟器。
 
@@ -188,7 +188,7 @@ RN就不多说，目前市场上很多APP都在使用，应该说是APP跨平台
 
 Litho是一套完全不同于传统Android的UI框架，它继承了Facebook一向大胆创新的风格，突破性地在Android上实现了React风格的UI框架。架构图如下：
 
-![16c37bfae2740b5f](media/15875320408603/16c37bfae2740b5f.jpg)
+![16c37bfae2740b5f](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/RwHD25.jpg)
 
 我对Android开发不熟，所以请移步[基本功 | Litho的使用及原理剖析](https://tech.meituan.com/2019/03/14/litho-use-and-principle-analysis.html)。
 

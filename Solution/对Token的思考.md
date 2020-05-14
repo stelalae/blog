@@ -6,7 +6,7 @@
 
 如上面文章里提到，帐号体系已经成为一个互联网产品的必备基石，往往是一个服务器（或单独的账户服务器），N个客户端的架构。
 
-![20200425](media/15876074403373/20200425.png)
+![20200425](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/s8RUis.png)
 
 下面重点说说Token、JWT的区别：
 
@@ -81,7 +81,7 @@ access_token是调用授权关系接口的调用凭证，由于access_token有�
 ## Token在访客模式中的应用
 
 1. 防止爬虫和机器人，下面摘自[API 接口设计中Token设计讨论](https://www.jianshu.com/p/9fdcfd950292)：
-![2630656-ed1961ad7d41ad22](media/15876074403373/2630656-ed1961ad7d41ad22.png)
+![2630656-ed1961ad7d41ad22](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/14/yr9aGu.png)
 
     * 其中签名的算法中的{Session}是通过加密的信息，用于判断当前 页面的请求。
     * {浏览器摘要}中会记录访问者的ip及浏览器信息，用于防止token被不同的机器使用
