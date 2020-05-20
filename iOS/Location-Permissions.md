@@ -61,6 +61,9 @@
 
 2020年05月上架一个新包，之前按照别人文档来囫囵吞枣的把位置权限全部加上，于是收到被拒的大礼包：
 ![](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/18/Zhe5M4.jpg)
+后经大佬指点，被拒的真正原因是因为xcode 11里Location updates被勾选了，去掉重新提交审核就好了。
+![](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/20/RZdJLT.png)
+![](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/05/20/7RlP7c.png)
 
 -------
 参考资料：
