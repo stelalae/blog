@@ -21,6 +21,9 @@
 
 
 
+### [《JavaScript高级程序设计》](./JavaScript/pjwd/README.md)
+### [《你不知道的JavaScript》](./JavaScript/ydkjs/README.md)
+
 - [ESLint+Prettier代码规范实践](./JavaScript/ESLint-Prettier.md)
 - [[笔记]TypeScript从基础知识到类型编程](./JavaScript/TypeScript-Basic-Knowledge.md)
 - [TypeScript使用Interface与Class的默认值细节](./JavaScript/TypeScript-Interface-Class-DefaultValue.md)

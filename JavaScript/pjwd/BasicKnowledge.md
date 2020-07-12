@@ -1,5 +1,7 @@
 # 基础知识
 
+[TOC]
+
 ### "use strict"
 
 `"use strict"`是ES5引入的严格模式，用于处理ES3中不确定的行为，对某些不安全操作也会抛出错误。它是一个编译指示（pragma），告诉JavaScript引擎切换到严格模式，这时为了不破坏ES3语法而特意选定的语法。
@@ -239,4 +241,28 @@ JavaScript函数的参数提供使用便利，也可以通过函数体内的argu
 >  所有参数都是值传递，不是引用传递。
 >
 > 没有函数重载，后定义的会覆盖先定义的。如果想实现重载，则需要利用参数的类型和数量，然后内部实现不同逻辑。
+
+```javascript
+function sum(num1, num2) {
+	arguments[1] = 10;
+	return arguments[0] + num2;
+}
+var a = sum(1, 2); // 11
+var b = sum(1, undefined); // 11
+var c = sum(1, null); // 11
+var d = sum(1); // NaN。undefined被转为NaN
+```
+
+arguments对象中的值会自动映射到对应命名参数，所以修改arguments[1]，也就修改了num2。但这两个值的内存空间是独立的，不过它们的值会同步。如果只传入一个参数，那么修改arguments[1]不会同步到num2，因为arguments数组的长度是由实参决定的。
+
+```javascript
+function sum(num1, num2 = 1) {
+	arguments[1] = 10;
+	return arguments[0] + num2;
+}
+var a = sum(1, 2); // 3
+var b = sum(1, undefined); // 2
+var c = sum(1, null); // 1。null被转为0
+var d = sum(1); // 2
+```
 
