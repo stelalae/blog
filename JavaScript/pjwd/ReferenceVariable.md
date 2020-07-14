@@ -150,21 +150,147 @@ function sayColor() {
 
 sayColor(); // red
 
+// 版本1
 o.sayColor = sayColor;
 o.sayColor(); // blue
 ```
 
 ### 函数属性和方法
 
-每个函数均有length、property属性，前者表示希望接收的命名参数的个数。
+每个函数均有length、prototype属性，前者表示希望接收的命名参数的个数，后者是保存函数所有实例方法的真正所在。
+
+> 调用方法实际上是各自对象实例访问的prototype的方法，在创建自定义引用类型以及实现继承时，prototype极为重要。prototype属性是不可枚举的，因此用for-in无法遍历。
+
+每个函数都包含非继承而来的方法：apply()、call()，用途都是在特定作用域中调用函数，即是设置函数体内this的对象指针。他们真正强大的地方是能扩充函数赖以运行的作用域，做到对象和方法的解耦。
+
+```javascript
+// 接前一个示例，版本2
+sayColor.apply(this); // red
+sayColor.call(this); // red
+sayColor.call(window); // red
+sayColor.call(o); // blue
+```
+
+它们的第一个参数都是函数运行的指定作用域，第二个参数apply 接收数组，call 则必须把参数逐一列举出来。不传参数时无区别。
+
+另外ECMAScript 5新增bind()，该方法创建一个函数实例，其this值会被绑定到传给bind()函数的值。
+
+```javascript
+// 版本3
+var objectSayColor = sayColor.bind(o);
+objectSayColor(); // blue
+```
+
+## 基本包装类型
+
+ECMAScript提供3个特殊的引用类型：Boolean、Number、String，与其他引用类型相似，具有各自的基本类型响应的特殊行为。所以实际上，当读取一个基本类型值的时候，后台会创建一个基本包装类型的对象，从而能够调用一些方法来操作这些数据。
+
+```javascript
+var s1 = 'some text';
+var s2 = s1.substring();
+```
+
+第一行中s1 是一个基本类型的字符串。第二行代码中访问s1 时处于一种读取模式，即在内存中读取这个字符串的值，这时自动完成下面操作：
+
+1. 创建String类型的一个实例 `var s1 = new String('some text')`；
+2. 在实例上调用指定的方法`var s2 = s1.substring(2)`；
+3. 销毁这个实例`s1 = null`；
+
+> 上面三个步骤也分别适用于Boolean、Number对应的布尔值和数字值。
+
+引用类型和基本包装类型的主要区别：对象的生命周期不同。new创建的实例一直在当前作用域的内存中，自动创建的只存在代码的执行瞬间，然后立即被销毁。这意味着不能在运行时为基本类型值添加属性和方法。
+
+- 对基本包装类型的实例调用typeof 返回'object'，在转为布尔类型时都是true。
+
+- Object构造函数也会向工厂函数一样，根据传入值的类型返回响应的基本包装类型的实例。
+
+- 使用new创建和直接调用同名的转型函数，结果是不一样的。
+
+```javascript
+var obj = new Object('some text');
+obj instanceof String; // true
+
+var value = '25';
+var number = Number(value); // 转型函数
+typeof number; // 'number'
+var obj2 = new Number(value); // 构造函数
+typeof obj2; // 'object'
+```
+
+> 不建议显示地创建基本包装类型的对象。
+
+#### Boolean类型
+
+Boolean类型是与布尔值对应的引用的类型。因为重写了toString()方法返回'true'、'false'，且typeof、instanceof返回值也与布尔值不一样，所以不建议使用Boolean对象。
+
+#### Number类型
+
+与数字值有下面差异：
+
+- value()：重写。返回基本类型的数值。
+- toLocaleString()/toString()：重写。接收一个表示进制基数的参数（默认十进制），以返回对应字符串。
+- toFixed()：新增。返回带有指定位小数位的字符串（补零），能够自动舍入（取决于浏览器实现）。
+- toExpoential()/toPrecision()：新增。返回指数表示法（e表示法）的字符串。
+
+同Boolean一样，不建议使用Number对象。
+
+#### String类型
+
+String是字符串的对象包装方法，新增length属性表示多少个字符。
+
+```javascript
+var str = 'hello world';
+```
+
+字符方法
+
+- charAt()：接收数字索引返回对应位置上单字符的字符串，等效于通过数组形式的下标访问。`str[1] === str.charAt(1)`；
+- charCodeAt()：返回指定位置上单字符的字符编码。`str.charCodeAt(1) === 101`；
 
 
 
+字符串操作（均不会改变原字符串！）
+
+- concat()：拼接字符串，接收任意个参数，等效于加号操作符（+）；
+
+- slice()/substring()、substr()：返回子字符串，前两者更像。第一个参数指字符串开始位置。第二个参数里前两者指最后一个字符串的位置，最后一个指字符串长度。
+
+```javascript
+var stringValue = "hello world"; 
+alert(stringValue.slice(3)); //"lo world" 
+alert(stringValue.substring(3)); //"lo world" 
+alert(stringValue.substr(3)); //"lo world" 
+alert(stringValue.slice(3, 7)); //"lo w" 
+alert(stringValue.substring(3,7)); //"lo w" 
+alert(stringValue.substr(3, 7)); //"lo worl"
+
+alert(stringValue.slice(-3)); //"rld" 
+alert(stringValue.substring(-3)); //"hello world" 
+alert(stringValue.substr(-3)); //"rld" 
+alert(stringValue.slice(3, -4)); //"lo w" 
+alert(stringValue.substring(3, -4)); //"hel" 
+alert(stringValue.substr(3, -4)); //""（空字符串）
+```
+
+*当只有第一个参数且为负值时，slice()方法会将传入的负值与字符串的长度相加。substr()方法将负的第一个参数加上字符串的长度，而将负的第二个参数转换为 0。substring()方法会把所有负值参数都转换为 0。*
+
+*当第二个参数是负值时，这三个方法的行为各不相同。slice()方法会把第二个参数转换为 7，这就相当于调用了 slice(3,7)，因此返回"lo w"。substring()方法会把第二个参数转换为 0，使调用变成了 substring(3,0)，而由于这个方法会将较小的数作为开始位置，将较大的数作为结束位置，因此最终相当于调用了 substring(0,3)。substr()也会将第二个参数转换为 0，这也就意味着返回包含零个字符的字符串，也就是一个空字符串。*
 
 
-### String
 
-字符串的模式匹配方法
+字符串位置：indexOf()、lastIndexOf()，往后或往前搜索子字符串，第二个参数是指定起始位置。
+
+
+
+trim()：创建副本，并删除前置和后缀的空格，然后返回结果。
+
+
+
+字符串大小写转换：toLowerCase()、toUpperCase()，及对应Locale版本。 
+
+
+
+模式匹配：
 
 - match()：接收参数是一个正则表达式或RegExp对象，返回匹配结果的数组。等效于RegExp 对象的 exec()方法。
 
@@ -212,7 +338,11 @@ alert(htmlEscape('<p class="greeting">Hello world!</p>'));
 //&lt;p class=&quot;greeting&quot;&gt;Hello world!&lt;/p&gt;
 ```
 
+
+
 localeCompare()：比较两个字符串大小，返回-1、0、1。
+
+
 
 fromCharCode()：String构造函数的静态方法，接收N个字符编码并转换成一个字符串。从本质上来看与charCodeAt() 执行的是相反的操作。
 
