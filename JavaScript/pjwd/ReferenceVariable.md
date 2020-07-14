@@ -158,3 +158,120 @@ o.sayColor(); // blue
 
 每个函数均有length、property属性，前者表示希望接收的命名参数的个数。
 
+
+
+
+
+### String
+
+字符串的模式匹配方法
+
+- match()：接收参数是一个正则表达式或RegExp对象，返回匹配结果的数组。等效于RegExp 对象的 exec()方法。
+
+- search()：参数同match()，返回字符串中第一个匹配项的索引，否则返回-1。
+
+```javascript
+var text = "cat, bat, sat, fat";
+var pattern = /.at/;
+//与 pattern.exec(text)相同
+var matches = text.match(pattern); 
+alert(matches.index); //0
+alert(matches[0]); //"cat"
+alert(pattern.lastIndex); //0 
+
+var pos = text.search(/at/);
+alert(pos); //1 
+```
+
+- replace()：第一个参数RegExp 对象或者一个字符串，第二个参数是一个字符串或者一个函数。
+
+  ![](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/07/14/EeOd3J.png)
+
+replace() 第二个参数是一个函数时，该函数返回一个字符串。在只有一个匹配项（即与模式匹配的字符串）的情况下，会向这个函数传递 3 个参数：模式的匹配项、模式匹配项在字符串中的位置和原始字符串。在正则表达式中定义了多个捕获组的情况下，传递给函数的参数依次是模式的匹配项、第一个捕获组的匹配项、第二个捕获组的匹配项……，但最后两个参数仍然分别是模式的匹配项在字符串中的位置和原始字符串。
+
+> 该模式匹配有关的方法是 split()，可基于指定的分隔符将一个字符串分割成 多个子字符串，并将结果放在一个数组中。
+
+参见[MDN说明](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/replace#%E6%8C%87%E5%AE%9A%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0)和示例：
+
+```javascript
+function htmlEscape(text) {
+  return text.replace(/[<>"&]/g, function(match, pos, originalText) {
+    switch (match) {
+      case '<':
+        return '&lt;';
+      case '>':
+        return '&gt;';
+      case '&':
+        return '&amp;';
+      case '"':
+        return '&quot;';
+    }
+  });
+}
+alert(htmlEscape('<p class="greeting">Hello world!</p>'));
+//&lt;p class=&quot;greeting&quot;&gt;Hello world!&lt;/p&gt;
+```
+
+localeCompare()：比较两个字符串大小，返回-1、0、1。
+
+fromCharCode()：String构造函数的静态方法，接收N个字符编码并转换成一个字符串。从本质上来看与charCodeAt() 执行的是相反的操作。
+
+```javascript
+alert(String.fromCharCode(104, 101, 108, 108, 111)); //"hello" 
+```
+
+## Global对象
+
+事实上，没有全局变量或全局函数；所有在全局作用域中定义的属性和函数，都是 Global 对象的属性。换句话说，不属于任何其他对象的属性和方法，最终都是它的属性和方法。
+
+#### URI 编码方法
+
+encodeURI() 和 encodeURIComponent() 用特殊的 UTF-8 编码替换 URI（Uniform Resource Identifiers，通用资源标识符）中所有无效的字符， 从而让浏览器能够接受和理解。对应的解码方法分别是：decodeURI() 和 decodeURIComponent()。
+
+- encodeURI() 不会对本身属于 URI 的特殊字符进行编码，例如冒号、正斜杠、 问号和井字号。
+- encodeURIComponent() 会对它发现的任何非标准字符进行编码。一般使用此方法！
+
+####  eval()方法
+
+像是一个完整的 ECMAScript 解析器，它只接受一个参数，即要执行的 ECMAScript（或 JavaScript） 字符串，然后把执行结果插入到原位置。eval() 执行的代码具有与该执行环境相同的作用域链。
+
+> 在非严格模式下，eval() 执行的代码可以引用在包含环境中定义的变量，eval() 执行的代码中定义的函数和变量，也能在外部访问（但不存在变量提升）。
+
+![](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/07/14/7X2hFk.png)
+
+Web 浏览器都是将这个全局对象作为 window 对象的一部分加以实现的，在全局作用域中声明的所有变量和函数，就都成为了 window 对象的属性。
+
+
+
+## Math对象
+
+Math 对象提供的计算功能执行速度，比在 JavaScript 直接编写的计算快得多。
+
+![icwZZW](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/07/14/icwZZW.png)
+
+min() 和 max() 用于确定一组数值中的最小值和最大值，可以接收任意多个数值参数。
+
+```javascript
+var max = Math.max(3, 54, 32, 16);
+alert(max); //54
+var min = Math.min(3, 54, 32, 16);
+alert(min); //3 
+
+var values = [1, 2, 3, 4, 5, 6, 7, 8];
+var max2 = Math.max.apply(Math, values);  // 使用apply
+```
+
+舍入方法：
+
+- Math.ceil()：执行向上舍入，即它总是将数值向上舍入为最接近的整数；
+- Math.floor()：执行向下舍入，即它总是将数值向下舍入为最接近的整数；
+- Math.round()：执行标准舍入，即它总是将数值四舍五入为最接近的整数（这也是我们在数学课上学到的舍入规则）。
+
+Math.random()方法返回大于等于 0 小于 1 的一个随机数。从某个整数范围内随机选择一个值：
+
+```
+值 = Math.floor(Math.random() * 可能值的总数 + 第一个可能的值) 
+```
+
+![cuClTw](https://cdn.jsdelivr.net/gh/stelalae/oss@master/files/2020/07/14/cuClTw.png)
+
