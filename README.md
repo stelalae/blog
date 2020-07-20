@@ -51,6 +51,7 @@
 
 - [H5调用手机摄像机、相册](./Web/H5-Camera-And-Photo-Album.md)
 - [umijs框架使用记录](./Web/Umijs-Usage.md)
+- [H5 History API简单记录](./Web/History-API.md)
 
 
 
