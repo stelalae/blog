@@ -44,6 +44,7 @@
 - [ReactNative工程搭建和改造](./ReactNative/Engineered.md)
 - [TypeScript在React-Native中的基本应用](./ReactNative/TypeScript-Usage.md)
 - [ReactNative的日志说明](./ReactNative/Log.md)
+- [React Native环境踩坑](./ReactNative/develop-environment.md)
 
 
 
