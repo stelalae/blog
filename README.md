@@ -22,10 +22,10 @@
 
 
 
-### [《ES6+学习笔记》](./JavaScript/es6/README.md)
+### [《ES6+学习笔记》](./JavaScript/es6/index.md)
 
-### [《JavaScript高级程序设计》](./JavaScript/pjwd/README.md)
-### [《你不知道的JavaScript》](./JavaScript/ydkjs/README.md)
+### [《JavaScript高级程序设计》](./JavaScript/pjwd/index.md)
+### [《你不知道的JavaScript》](./JavaScript/ydkjs/index.md)
 
 - [ESLint+Prettier代码规范实践](./JavaScript/ESLint-Prettier.md)
 - [[笔记]TypeScript从基础知识到类型编程](./JavaScript/TypeScript-Basic-Knowledge.md)
