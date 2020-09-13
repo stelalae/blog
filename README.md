@@ -22,6 +22,8 @@
 
 
 
+### [《ES6+学习笔记》](./JavaScript/es6/README.md)
+
 ### [《JavaScript高级程序设计》](./JavaScript/pjwd/README.md)
 ### [《你不知道的JavaScript》](./JavaScript/ydkjs/README.md)
 
@@ -39,16 +41,6 @@
 
 
 
-
-## React Native
-
-- [ReactNative工程搭建和改造](./ReactNative/Engineered.md)
-- [TypeScript在React-Native中的基本应用](./ReactNative/TypeScript-Usage.md)
-- [ReactNative的日志说明](./ReactNative/Log.md)
-- [React Native环境踩坑](./ReactNative/develop-environment.md)
-
-
-
 ## Web
 
 - [H5调用手机摄像机、相册](./Web/H5-Camera-And-Photo-Album.md)
@@ -56,6 +48,14 @@
 - [H5 History API简单记录](./Web/History-API.md)
 
 
+
+## React Native
+
+- [ReactNative工程搭建和改造](./ReactNative/Engineered.md)
+- [TypeScript在React-Native中的基本应用](./ReactNative/TypeScript-Usage.md)
+- [ReactNative的日志说明](./ReactNative/Log.md)
+- [React Native环境踩坑](./ReactNative/develop-environment.md)
+- 
 
 ## iOS
 
