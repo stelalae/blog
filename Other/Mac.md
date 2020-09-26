@@ -16,14 +16,29 @@
   - [XMind](https://www.macwk.com/soft/xmind-2020)
 - 开发环境：
   - [brew](https://brew.sh/index_zh-cn)
+
   - [oh-my-zsh](https://ohmyz.sh/)
+
   - [yarn](https://www.jianshu.com/p/4611d8f1544f)，官网那个不再适用，见[issue](https://github.com/yarnpkg/website/issues/913)
+
   - [nvm](https://github.com/nvm-sh/nvm)，安装最新版node
+
   - [nrm](https://github.com/Pana/nrm)，管理npm的registry，不支持yarn
+    - `npm config set registry https://registry.npm.taobao.org`
+    - `yarn config set registry https://registry.npm.taobao.org`
+    - `npm config get registry`、`yarn config get registry`
+    
+  - vim，`vim ~/.vimrc`
 
-
-
-
+    ```bash
+    set tabstop=2
+    set shiftwidth=2
+    set expandtab
+    set autoindent
+    set nu
+    set backspace=2
+    ```
 
 - 其他：
   - 关闭提醒音量
+
