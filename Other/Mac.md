@@ -14,6 +14,7 @@
   - [uPic](https://github.com/gee1k/uPic)：导入配置
   - [iShot](https://apps.apple.com/cn/app/id1485844094)
   - [XMind](https://www.macwk.com/soft/xmind-2020)
+  - [小历](https://www.macwk.com/soft/tinycal)
 - 开发环境：
   - [brew](https://brew.sh/index_zh-cn)
 
@@ -40,5 +41,6 @@
     ```
 
 - 其他：
+  
   - 关闭提醒音量
 
