@@ -29,7 +29,7 @@
     - `yarn config set registry https://registry.npm.taobao.org`
     - `npm config get registry`、`yarn config get registry`
     
-  - vim，`vim ~/.vimrc`
+  - vim，参考[mac/linux中vim永久显示行号、开启语法高亮](https://segmentfault.com/a/1190000024433066)，`vim ~/.vimrc`
 
     ```bash
     set tabstop=2
